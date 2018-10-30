@@ -5,11 +5,11 @@ def reformat_languages(languages)
   
   languages.each do |style, language_data|
     language_data.each do |language, type_data|
-      if new_hash[language]
-        new_hash[language][:style] << style
-      else 
-      new_hash[language] = {:type => type_data[:type]}
-      new_hash[language][:style] = [style]
+      if new_hash[language]                 #if new_hash[language] exists, we
+        new_hash[language][:style] << style #would assumethat it has both :type
+      else                                    #and :style. So we don't want to
+      new_hash[language] = {:type => type_data[:type]}      #reset, but just
+      new_hash[language][:style] = [style]                  #add second style
       end
     end
   end 
